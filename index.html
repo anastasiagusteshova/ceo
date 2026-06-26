@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Анастасия Густешова • Проектный CEO</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== СБРОС И ПЕРЕМЕННЫЕ ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-body: #F9FAFB;
+      --bg-dark: #1a2a3a;
+      --bg-white: #FFFFFF;
+      --text-primary: #1a2a3a;
+      --text-light: #E0E5EB;
+      --text-secondary: #4A5C6C;
+      --accent: #c9a84c;
+      --border-light: #E5E7EB;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --card-radius: 4px;
+      --divider-width: 40px;
+      --divider-height: 2px;
+      --transition-speed: 0.2s;
+    }
+
+    body {
+      background-color: var(--bg-body);
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      line-height: 1.5;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+      margin-bottom: 2rem;
+      color: var(--text-primary);
+    }
+
+    /* ===== КОНТЕЙНЕР ===== */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* ===== СЕКЦИИ ===== */
+    section {
+      padding: 100px 0;
+    }
+
+    .bg-dark {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+    }
+
+    .bg-dark h2 {
+      color: var(--text-light);
+    }
+
+    /* ===== КНОПКИ ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 14px 28px;
+      border-radius: var(--card-radius);
+      text-decoration: none;
+      transition: all var(--transition-speed) ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+      letter-spacing: 0.3px;
+    }
+
+    .btn-hero {
+      background-color: var(--accent);
+      color: var(--text-primary);
+      border-color: var(--accent);
+    }
+
+    .btn-hero:hover {
+      background-color: transparent;
+      color: var(--text-light);
+      border-color: var(--text-light);
+    }
+
+    /* ===== АНИМАЦИЯ ПОЯВЛЕНИЯ ===== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== HERO ===== */
+    .hero-section {
+      padding: 60px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 60% 40%;
+      min-height: 600px;
+      align-items: center;
+      gap: 0;
+    }
+
+    .hero-text {
+      padding-right: 40px;
+    }
+
+    .preheader {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-text h1 {
+      font-size: 3.8rem;
+      font-weight: 700;
+      color: var(--text-light);
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #ccd3db;
+      margin-bottom: 2rem;
+      max-width: 500px;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: stretch;
+      justify-content: flex-end;
+    }
+
+    .hero-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      max-height: 520px;
+      object-fit: cover;
+      border-radius: var(--card-radius);
+      display: block;
+    }
+
+    /* ===== ЦИФРЫ ===== */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      text-align: left;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-number {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 4rem;
+      line-height: 1;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    .stat-divider {
+      width: var(--divider-width);
+      height: var(--divider-height);
+      background-color: var(--accent);
+      margin: 0.75rem 0;
+    }
+
+    .stat-desc {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+
+    /* ===== КЕЙСЫ ===== */
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .case-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--card-radius);
+      padding: 28px 24px;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .case-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .case-tag {
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+
+    .case-title {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
+    }
+
+    .case-metric {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .case-text {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ===== НАВЫКИ ===== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .skills-left h2 {
+      margin-bottom: 0;
+      font-size: 2.8rem;
+    }
+
+    .skills-right {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px 32px;
+    }
+
+    .skill-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .skill-icon {
+      width: 24px;
+      height: 24px;
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .skill-name {
+      font-weight: 500;
+      font-size: 1.05rem;
+      color: var(--text-primary);
+    }
+
+    /* ===== ФОРМАТ РАБОТЫ ===== */
+    .format-content {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .format-list {
+      list-style: none;
+      margin: 2rem 0 2.5rem;
+    }
+
+    .format-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      color: var(--text-light);
+    }
+
+    .list-divider {
+      width: 32px;
+      height: 2px;
+      background-color: var(--accent);
+      margin-top: 0.7rem;
+      flex-shrink: 0;
+    }
+
+    .exclude-block {
+      font-size: 0.95rem;
+      color: #9aa4b2;
+      margin-top: 2rem;
+      border-left: 2px solid var(--accent);
+      padding-left: 20px;
+    }
+
+    /* ===== ФУТЕР ===== */
+    .footer {
+      background-color: var(--bg-body);
+      text-align: center;
+      padding: 80px 0 60px;
+    }
+
+    .footer h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    .footer .btn {
+      margin: 1.5rem 0 2rem;
+      padding: 16px 40px;
+      font-size: 1.1rem;
+      background-color: var(--accent);
+      color: var(--text-primary);
+      border-color: var(--accent);
+    }
+
+    .footer .btn:hover {
+      background-color: transparent;
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .contact-links a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .contact-links a:hover {
+      border-bottom: 1px solid var(--accent);
+    }
+
+    .footer-note {
+      font-style: italic;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    /* ===== АДАПТИВНОСТЬ ===== */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 20px;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero-text {
+        padding-right: 0;
+        order: 2;
+        margin-top: 40px;
+      }
+
+      .hero-text h1 {
+        font-size: 2.8rem;
+      }
+
+      .hero-image {
+        order: 1;
+        justify-content: center;
+      }
+
+      .hero-photo {
+        max-height: 450px;
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px 20px;
+      }
+
+      .cases-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .cases-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-right {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-number {
+        font-size: 3.2rem;
+      }
+
+      .hero-photo {
+        width: 100%;
+        max-height: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <!-- Секция 1: Hero -->
+    <section class="hero-section bg-dark">
+      <div class="container hero-grid">
+        <div class="hero-text fade-up">
+          <div class="preheader">Проектный CEO / Антикризисный управленец</div>
+          <h1>Анастасия Густешова</h1>
+          <p class="hero-subtitle">15 лет превращаю убыточные направления в лидеров рынка. Запускаю, масштабирую, вывожу из пике.</p>
+          <a href="#contacts" class="btn btn-hero">Обсудить проект</a>
+        </div>
+        <div class="hero-image fade-up">
+          <img 
+            src="https://disk.360.yandex.ru/i/YxA5_gULiJZqNQ" 
+            alt="Анастасия Густешова — Проектный CEO" 
+            class="hero-photo"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция 2: Цифры -->
+    <section>
+      <div class="container stats-grid" id="statsContainer">
+        <div class="stat-item fade-up">
+          <div class="stat-number" data-target="x8" data-suffix="">x8</div>
+          <div class="stat-divider"></div>
+          <div class="stat-desc">рост прибыли<br>за 6 лет</div>
+        </div>
+        <div class="stat-item fade-up">
+          <div class="stat-number" data-target="25" data-suffix="%">0%</div>
+          <div class="stat-divider"></div>
+          <div class="stat-desc">доля рынка<br>среди врачей РФ</div>
+        </div>
+        <div class="stat-item fade-up">
+          <div class="stat-number" data-target="50" data-suffix="+">0</div>
+          <div class="stat-divider"></div>
+          <div class="stat-desc">сотрудников<br>в управлении</div>
+        </div>
+        <div class="stat-item fade-up">
+          <div class="stat-number" data-target="400" data-suffix="+">0</div>
+          <div class="stat-divider"></div>
+          <div class="stat-desc">продуктов<br>запущено с нуля</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция 3: Кейсы -->
+    <section>
+      <div class="container">
+        <h2 class="fade-up">Решенные задачи</h2>
+        <div class="cases-grid">
+          <div class="case-card fade-up">
+            <div class="case-tag">EdTech / B2G</div>
+            <div class="case-title">Лидер рынка за 3 года</div>
+            <div class="case-metric">25% врачей РФ</div>
+            <p class="case-text">Собрала команду из 50+ сотрудников и 300 экспертов. Выстроила продукт, продажи и маркетинг. Проект занял четверть рынка врачей за 3 года.</p>
+          </div>
+          <div class="case-card fade-up">
+            <div class="case-tag">Стратегия / Финансы</div>
+            <div class="case-title">Рост прибыли x8</div>
+            <div class="case-metric">+800% прибыли</div>
+            <p class="case-text">Перекроила бизнес-модель, отладила переговоры с госсектором и вывела компанию из стагнации. Кратный рост чистой прибыли за 6 лет.</p>
+          </div>
+          <div class="case-card fade-up">
+            <div class="case-tag">Кризис / Продажи</div>
+            <div class="case-title">Продажи без посредников</div>
+            <div class="case-metric">100% свой канал</div>
+            <p class="case-text">Перевела бизнес с агентов на собственные продажи. В кризис выстроила систему, которая генерирует выручку без внешней зависимости.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция 4: Навыки -->
+    <section>
+      <div class="container skills-grid">
+        <div class="skills-left fade-up">
+          <h2>Экспертиза</h2>
+        </div>
+        <div class="skills-right fade-up">
+          <div class="skill-item">
+            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span class="skill-name">Управление командами 50+</span>
+          </div>
+          <div class="skill-item">
+            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+            <span class="skill-name">Hard-переговоры</span>
+          </div>
+          <div class="skill-item">
+            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <span class="skill-name">Системы продаж (B2C/B2B/B2G)</span>
+          </div>
+          <div class="skill-item">
+            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+            <span class="skill-name">Запуск продуктов (0→1)</span>
+          </div>
+          <div class="skill-item">
+            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span class="skill-name">Антикризисное управление</span>
+          </div>
+          <div class="skill-item">
+            <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+            <span class="skill-name">Масштабирование бизнеса</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция 5: Формат работы -->
+    <section class="bg-dark">
+      <div class="container format-content fade-up">
+        <h2 style="text-align: center;">Как мы будем работать</h2>
+        <ul class="format-list">
+          <li>
+            <span class="list-divider"></span>
+            <span>Выхожу на проект в течение 3 дней после договоренностей.</span>
+          </li>
+          <li>
+            <span class="list-divider"></span>
+            <span>Полное операционное управление. Без микроменеджмента с вашей стороны.</span>
+          </li>
+          <li>
+            <span class="list-divider"></span>
+            <span>Прозрачная отчетность и только те KPI, что привязаны к чистой прибыли.</span>
+          </li>
+          <li>
+            <span class="list-divider"></span>
+            <span>Четкий срок работы: от 3 до 18 месяцев.</span>
+          </li>
+        </ul>
+        <div class="exclude-block">
+          Не беру: проекты без бюджета на развитие, номинальные должности без полномочий, бизнес, не готовый к быстрым решениям.
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция 6: Футер -->
+    <footer class="footer" id="contacts">
+      <div class="container fade-up">
+        <h2>Один проект в квартал. Сейчас — ваш.</h2>
+        <a href="#" class="btn" onclick="event.preventDefault();">Обсудить задачу</a>
+        <div class="contact-links">
+          <a href="#">Telegram: @Anastasia_Gusteshova</a>
+          <a href="#">Email: 251686@bk.ru</a>
+        </div>
+        <div class="footer-note">Без презентаций. С конкретными цифрами.</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (function() {
+      // Анимация появления при скролле (Fade In Up)
+      var fadeElements = document.querySelectorAll('.fade-up');
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.2, rootMargin: "0px 0px -40px 0px" });
+
+      fadeElements.forEach(function(el) {
+        observer.observe(el);
+      });
+
+      // Счетчик чисел (Count Up)
+      var statNumbers = document.querySelectorAll('.stat-number[data-target]');
+
+      function animateValue(element, target, suffix, duration) {
+        duration = duration || 1800;
+        if (element.dataset.animated === 'true') return;
+        element.dataset.animated = 'true';
+
+        // "x8" оставляем как есть
+        if (target === 'x8') {
+          element.textContent = 'x8';
+          return;
+        }
+
+        var targetNum = parseInt(target, 10);
+        if (isNaN(targetNum)) return;
+
+        var startTime = performance.now();
+
+        function updateCounter(currentTime) {
+          var elapsed = currentTime - startTime;
+          var progress = Math.min(elapsed / duration, 1);
+          var eased = 1 - (1 - progress) * (1 - progress); // easeOutQuad
+          var current = Math.floor(eased * targetNum);
+          element.textContent = current + (suffix || '');
+
+          if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+          } else {
+            element.textContent = targetNum + (suffix || '');
+          }
+        }
+
+        requestAnimationFrame(updateCounter);
+      }
+
+      // Наблюдатель для секции с цифрами
+      var statsContainer = document.getElementById('statsContainer');
+      if (statsContainer) {
+        var statsObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              statNumbers.forEach(function(numEl) {
+                var target = numEl.dataset.target;
+                var suffix = numEl.dataset.suffix || '';
+                animateValue(numEl, target, suffix);
+              });
+              statsObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.4 });
+
+        statsObserver.observe(statsContainer);
+      }
+
+      // Проверка видимых элементов при загрузке
+      window.addEventListener('load', function() {
+        fadeElements.forEach(function(el) {
+          var rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 100 && rect.bottom > 0) {
+            el.classList.add('visible');
+          }
+        });
+
+        if (statsContainer) {
+          var rect = statsContainer.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            statNumbers.forEach(function(numEl) {
+              var target = numEl.dataset.target;
+              var suffix = numEl.dataset.suffix || '';
+              if (!numEl.dataset.animated || numEl.dataset.animated !== 'true') {
+                animateValue(numEl, target, suffix);
+              }
+            });
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
